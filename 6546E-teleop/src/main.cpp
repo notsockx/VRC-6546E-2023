@@ -10,9 +10,9 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Motor1               motor         1               
-// MotorGroup2          motor_group   2, 4            
-// Controller1          controller                    
+// Motor1               motor         1
+// MotorGroup2          motor_group   2, 4
+// Controller1          controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 // imported libraries
@@ -73,10 +73,11 @@ void autonomous(void) {
 
 void usercontrol(void) {
   vex::thread t(DriveControl);
+  vex::thread c(UpdateControllerUI);
   Controller1.ButtonL1.pressed(IntakeControl);
   // User control code here, inside the loop;
   while (1) {
-    
+
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
